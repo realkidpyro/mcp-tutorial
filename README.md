@@ -1,4 +1,4 @@
-# MCP Server Tutorial
+[# MCP Server Tutorial
 
 ## Introduction
 In this guide, you’ll learn how to set up and run an MCP (Model Context Protocol) server with your own tools.
@@ -82,7 +82,7 @@ http://127.0.0.1:8000
 ```bash
 python add_server.py
 ```
-
+![MCP server running in terminal](bd10f9cc5f43970b6e0ce998c7ef3709.png/server-running.png)
 ---
 
 ## Step 5: Debug with MCP Inspector (No Tunneling Needed)
@@ -222,3 +222,4 @@ if __name__ == "__main__":
 ## Final Notes
 This tutorial gets **your own MCP server and tools running**. The key is a reliable **server backbone** and a clear **debugging process** (Inspector + tunneling).
 From here, customize freely: add, remove, or modify tools to fit your use case.
+](https://github.com/realkidpyro/mcp-tutorial/tree/main/pictures)
