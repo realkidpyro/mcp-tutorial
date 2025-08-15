@@ -181,5 +181,3 @@ Example prompt:
 
 ## Final Notes
 This tutorial gets **your own MCP server and tools running**. The key is a reliable **server backbone** and a clear **debugging process** (Inspector + tunneling).
-From here, customize freely: add, remove, or modify tools to fit your use case.
-](https://github.com/realkidpyro/mcp-tutorial/tree/main/pictures)
