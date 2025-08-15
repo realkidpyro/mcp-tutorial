@@ -84,6 +84,8 @@ python add_server.py
 ```
 ![MCP server running in terminal](pictures/bd10f9cc5f43970b6e0ce998c7ef3709.png)
 *Figure 1: MCP server output showing FastMCP 2.0 running locally*
+
+
 ---
 
 ## Step 5: Debug with MCP Inspector (No Tunneling Needed)
@@ -103,6 +105,8 @@ npx @modelcontextprotocol/inspector
 You’ll see your tools (`add_numbers`, `summarize_url`) and can run them with custom inputs.
 ![MCP server running in terminal](pictures/c814e351b89da67aae2d0dc0075fa137.png)
 *Figure 3: MCP inspector listing server tools*
+
+
 ---
 
 ## Step 6: Put the Server Online with Cloudflared (Optional)
@@ -113,6 +117,8 @@ cloudflared tunnel --url http://127.0.0.1:8000
 ```
 ![MCP server running in terminal](pictures/aacd4ab8a1f78b8cd190be5d12369c44.png)
 *Figure 4: cloudflare tunnel and link established*
+
+
 Cloudflared prints a public URL like:
 ```
 https://<random>.trycloudflare.com
@@ -144,8 +150,11 @@ Example prompt:
 ![MCP server running in terminal](pictures/959fd42ccb2f14c5340c78a133d06820.png)
 *Figure 5: Input name of server and cloudflare tunnel link*
 
+
 ![MCP server running in terminal](pictures/883c3459f2f41b0a7e48c0d34f3e334a.png)
 *Figure 6: LLM requests to use tool*
+
+
 ---
 
 ## Step 8: Tool Descriptions
