@@ -82,7 +82,7 @@ http://127.0.0.1:8000
 ```bash
 python add_server.py
 ```
-![MCP server running in terminal](bd10f9cc5f43970b6e0ce998c7ef3709.png/server-running.png)
+![MCP server running in terminal](pictures/bd10f9cc5f43970b6e0ce998c7ef3709.png)
 ---
 
 ## Step 5: Debug with MCP Inspector (No Tunneling Needed)
