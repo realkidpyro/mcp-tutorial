@@ -30,6 +30,7 @@ cd <your-repo>
 
 ---
 
+
 ## Step 2: Create a Virtual Environment and Install Dependencies
 ```bash
 python -m venv .venv
@@ -83,7 +84,7 @@ http://127.0.0.1:8000
 python add_server.py
 ```
 ![MCP server running in terminal](pictures/bd10f9cc5f43970b6e0ce998c7ef3709.png)  
-*Figure 1: MCP server output showing FastMCP 2.0 running locally*
+*Figure 1: MCP server output showing FastMCP 2.0 running locally*  
 
 
 ---
@@ -96,6 +97,8 @@ npx @modelcontextprotocol/inspector
 ```
 ![MCP server running in terminal](pictures/3c684d1be7f229374e001badefae52aa.png)  
 *Figure 2: MCP inspector loading page*
+
+
 **Connect settings:**
 - **Transport Type:** `Streamable HTTP`
 - **URL:** `http://127.0.0.1:8000/mcp/`
@@ -153,6 +156,8 @@ Example prompt:
 
 ![MCP server running in terminal](pictures/883c3459f2f41b0a7e48c0d34f3e334a.png)  
 *Figure 6: LLM requests to use tool*
+
+
 
 
 ---
