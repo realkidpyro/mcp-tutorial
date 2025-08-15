@@ -27,4 +27,36 @@ def add_numbers(x: float, y: float) -> dict:
 def summarize_url(url: str, focus: str = "", words: int = 200) -> dict:
     try:
         r = requests.get(url, timeout=10, headers={"User-Agent": "MCP-URL-Bot/1.0"})
-        r.ra
+        r.raise_for_status()
+        html = Document(r.text).summary(html_partial=True) or r.text
+        soup = BeautifulSoup(html, "lxml")
+        for tag in soup(["script", "style", "noscript"]):
+            tag.decompose()
+        text = "\n".join(ln.strip() for ln in soup.get_text("\n").splitlines() if ln.strip())
+    except Exception as e:
+        return {"ok": False, "error": f"fetch_failed: {e}"}
+
+    # Limit text length for processing
+    text = text[:12000]
+    focus_line = f"\nFocus: {focus.strip()}\n" if focus else ""
+    prompt = textwrap.dedent(f"""
+        Summarize the page in ~{words} words. Be accurate; do not invent facts.
+        Use bullet points if helpful.{focus_line}
+        --- PAGE START ---
+        {text}
+        --- PAGE END ---
+    """).strip()
+
+    try:
+        client = OpenAI(api_key=API_KEY)
+        response = client.responses.create(model=MODEL, input=prompt)
+        return {"ok": True, "summary": response.output_text or ""}
+    except Exception as e:
+        return {"ok": False, "error": f"llm_failed: {e}"}
+
+# Run the server
+if __name__ == "__main__":
+    if TRANSPORT == "http":
+        mcp.run(transport="http", host=HOST, port=PORT)
+    else:
+        mcp.run(transport="stdio")
