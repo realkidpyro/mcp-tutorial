@@ -63,7 +63,7 @@ export OPENAI_API_KEY="sk-..."
 setx OPENAI_API_KEY "sk-..."
 ```
 
-In `add_server.py`, ensure:
+In `add_server.py`, ensure you havew a format such as this one:
 ```python
 MODEL = "gpt-4o"
 HOST = "127.0.0.1"
@@ -83,6 +83,7 @@ http://127.0.0.1:8000
 python add_server.py
 ```
 ![MCP server running in terminal](pictures/bd10f9cc5f43970b6e0ce998c7ef3709.png)
+*Figure 1: MCP server output showing FastMCP 2.0 running locally*
 ---
 
 ## Step 5: Debug with MCP Inspector (No Tunneling Needed)
@@ -91,7 +92,8 @@ Use the official Inspector to test tools locally.
 ```bash
 npx @modelcontextprotocol/inspector
 ```
-
+![MCP server running in terminal](pictures/3c684d1be7f229374e001badefae52aa.png)
+*Figure 2: MCP inspector loading page*
 **Connect settings:**
 - **Transport Type:** `Streamable HTTP`
 - **URL:** `http://127.0.0.1:8000/mcp/`
@@ -99,7 +101,8 @@ npx @modelcontextprotocol/inspector
 > Connect **only while your Python server is running**.
 
 You’ll see your tools (`add_numbers`, `summarize_url`) and can run them with custom inputs.
-
+![MCP server running in terminal](pictures/c814e351b89da67aae2d0dc0075fa137.png)
+*Figure 3: MCP inspector listing server tools*
 ---
 
 ## Step 6: Put the Server Online with Cloudflared (Optional)
@@ -108,7 +111,8 @@ If you want to share your local server:
 ```bash
 cloudflared tunnel --url http://127.0.0.1:8000
 ```
-
+![MCP server running in terminal](pictures/aacd4ab8a1f78b8cd190be5d12369c44.png)
+*Figure 4: cloudflare tunnel and link established*
 Cloudflared prints a public URL like:
 ```
 https://<random>.trycloudflare.com
@@ -137,6 +141,11 @@ Once connected, the model can propose calling your tools based on your prompt an
 Example prompt:
 > Summarize https://en.wikipedia.org/wiki/Cefnllys_Castle and focus on the scenery.
 
+![MCP server running in terminal](pictures/959fd42ccb2f14c5340c78a133d06820.png)
+*Figure 5: Input name of server and cloudflare tunnel link*
+
+![MCP server running in terminal](pictures/883c3459f2f41b0a7e48c0d34f3e334a.png)
+*Figure 6: LLM requests to use tool*
 ---
 
 ## Step 8: Tool Descriptions
