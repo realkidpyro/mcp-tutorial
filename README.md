@@ -1,7 +1,10 @@
 [# MCP Server Tutorial
 
 ## Introduction
-In this guide, you’ll learn how to set up and run an MCP (Model Context Protocol) server with your own tools.
+Most MCP tutorials today focus on connecting pre-built tools inside **Claude Desktop**, **VS Code**, or **Cline**. While that works great for quick use, the downside is that many of the technical details are **hidden behind a simple "install" button**.  
+
+This guide takes a different approach: you’ll actually **build your own MCP server and tools** from scratch. By the end, you’ll understand *how* MCP works under the hood, *how* the server and transport layers are structured, and *how* to design your own custom tools instead of relying on plug-and-play integrations.  
+
 The two example tools here are:
 - `add_numbers` → adds two numbers together
 - `summarize_url` → fetches a webpage, cleans the text, and summarizes it using an AI API call
@@ -23,6 +26,7 @@ Once your server is working, you can swap in any tools you like.
 ---
 
 ## Step 1: Clone the Repository
+We’ll use your own GitHub repo as the starting point. If you don’t already have one, create a new empty repo on GitHub first.
 ```bash
 git clone https://github.com/<your-username>/<your-repo>.git
 cd <your-repo>
@@ -55,6 +59,7 @@ lxml
 ---
 
 ## Step 3: Configure the Server
+In this step, we will configure the server using an Open AI API key. This is how we make a call to an LLM from our python code.
 Set your OpenAI API key via environment variable (recommended):
 
 ```bash
